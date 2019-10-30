@@ -1,0 +1,19 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+
+/** @var \Encomage\Careers\Model\Category $item */
+$item = ($block->getItem()) ? $block->getItem() : null;
+?>
+<?php if ($item): ?>
+    <li>
+        <button type="button" data-category-id="<?= (int)$item->getId(); ?>" class="js-load-careers-category-items">
+            <?= $item->getTitle(); ?>
+        </button>
+    </li>
+<?php else : ?>
+    <li class="active">
+        <button type="button" data-category-id=" " class="js-load-careers-category-items">
+            <?= /* @escapeNotVerified */ __('All') ?>
+        </button>
+    </li>
+<?php endif; ?>

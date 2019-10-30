@@ -1,0 +1,17 @@
+<?php /** @var $block \Encomage\Careers\Block\Careers\CareersList\Items */ ?>
+<?php $items = $block->getCareersItems() ?>
+
+<?php if (count($items)): ?>
+    <div class="careers-list">
+        <?php foreach ($items as $item): ?>
+            <div class="item">
+                <a href="<?= $item->getViewUrl(); ?>">
+                    <h2><?= $item->getTitle(); ?></h2>
+                    <p><?= mb_strimwidth($item->getContent(), 0, 290, "<span class='trimmarker'>...</span>"); ?></p>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <p class="no-vacancy-text"><?= $block->getNoVacancyText(); ?></p>
+<?php endif; ?>

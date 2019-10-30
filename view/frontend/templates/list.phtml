@@ -1,0 +1,17 @@
+<?php /** @var $block \Encomage\Careers\Block\Careers\CareersList\Categories */
+
+$list = $block->getLoadedCareersCategories();
+?>
+<!--<div class="content-heading">
+    <h2 class="title"></h2>
+</div>-->
+<?php if ($list): ?>
+    <nav class="navigation">
+        <span class="open-vacancies-menu"></span>
+        <div>
+            <ul class="js-category-button-list"></ul>
+        </div>
+    </nav>
+<?php endif; ?>
+<div class="js-ajax-items-container" data-mage-init='{"careersList": <?= $block->escapeHtml($block->getJsConfig()); ?>}'>
+</div>

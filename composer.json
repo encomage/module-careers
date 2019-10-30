@@ -1,0 +1,37 @@
+{
+    "name": "encomage/module-careers",
+    "description": "Encomage Careers extension for Magento 2",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Encomage",
+            "email": "hello@encomage.com",
+            "homepage": "https://www.encomage.com",
+            "role": "Technical Support"
+        }
+    ],
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "keywords": [
+        "magento 2",
+        "careers",
+        "vacancy",
+        "jobs",
+        "store vacancies",
+        "extension"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Encomage\\Careers\\": ""
+        }
+    },
+    "require": {
+        "encomage/module-core": "*"
+    }
+}

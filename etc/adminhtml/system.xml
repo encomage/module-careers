@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="careers_settings" showInDefault="1" showInStore="1" showInWebsite="1" translate="label" type="text">
+            <label>Careers</label>
+            <tab>encomage</tab>
+            <resource>Encomage_Careers::careers</resource>
+            <group id="frontend" translate="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" type="text">
+                <label>Frontend Settings</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="front_name" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1"
+                       showInStore="1" canRestore="1">
+                    <label>URL Path Name</label>
+                </field>
+                <field id="text_empty_vacancy_page" translate="label" type="text" sortOrder="300" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Text for Empty Page</label>
+                </field>
+                <field id="menu_link_title" translate="label" type="text" sortOrder="300" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Menu Link Title</label>
+                </field>
+                <field id="cms_block_listing_page" translate="label" type="select" sortOrder="400" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable CMS Block on Listing Page</label>
+                    <source_model>Encomage\Careers\Model\Config\Source\CmsBlockList</source_model>
+                </field>
+            </group>
+            <group id="email_settings" translate="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" type="text">
+                <label>Email Settings</label>
+                <field id="recipient_name" translate="label" type="text" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Recipient Name</label>
+                </field>
+                <field id="recipient_email" translate="label" type="text" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Recipient Email</label>
+                </field>
+                <field id="email_template" translate="label" type="select" sortOrder="300"
+                       showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="allowed_extensions" translate="label" type="text" sortOrder="300"
+                       showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                    <label>Allowed extensions</label>
+                    <comment>Example: pdf,pdf,csv,bmp,txt,doc,docx,xls,xlsx,rtf,ppt,ppt</comment>
+                </field>
+                <field id="max_size" translate="label" type="text" sortOrder="500" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max Size</label>
+                    <comment>Value should in bytes</comment>
+                </field>
+            </group>
+            <group id="sharing_add_to_any" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" type="text">
+                <label>Sharing AddToAny</label>
+                <field id="code" translate="label" type="textarea" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>ShareToAny Code</label>
+                    <comment><![CDATA[Generate code here: https://www.addtoany.com/]]></comment>
+                </field>
+            </group>
+            <group id="sort" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" type="text">
+                <label>Frontend Sorting</label>
+                <field id="sort_by" translate="label" type="select" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sort By</label>
+                    <source_model>Encomage\Careers\Model\Config\Source\SortBy</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="select" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sort Order</label>
+                    <source_model>Encomage\Careers\Model\Config\Source\SortOrder</source_model>
+                </field>
+            </group>
+            <group id="seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Search Engine Optimisation</label>
+                <field id="meta_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title</label>
+                </field>
+                <field id="h1_page_title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>H1 Page Title</label>
+                </field>
+                <field id="meta_keywords" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords</label>
+                </field>
+                <field id="meta_description" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

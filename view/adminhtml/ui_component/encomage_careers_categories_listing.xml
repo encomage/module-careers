@@ -1,0 +1,186 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                encomage_careers_categories_listing.encomage_careers_categories_listing_data_source
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/create" />
+                <class>primary</class>
+                <label translate="true">Add Category</label>
+            </button>
+        </buttons>
+        <spinner>encomage_careers_categories_listing_columns</spinner>
+        <deps>
+            <dep>encomage_careers_categories_listing.encomage_careers_categories_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="encomage_careers_categories_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render" />
+        </settings>
+        <dataProvider class="Magento\Cms\Ui\Component\DataProvider"
+                      name="encomage_careers_categories_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks" />
+        <columnsControls name="columns_controls" />
+        <filterSearch name="fulltext" />
+        <filters name="listing_filters">
+            <settings>
+                <templates>
+                    <filters>
+                        <select>
+                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+                        </select>
+                    </filters>
+                </templates>
+            </settings>
+            <filterSelect name="store_id" provider="${ $.parentName }">
+                <settings>
+                    <captionValue>0</captionValue>
+                    <options class="Encomage\Careers\Ui\Component\Listing\Column\Options" />
+                    <label translate="true">Store View</label>
+                    <dataScope>store_id</dataScope>
+                    <imports>
+                        <link name="visible">componentType = column, index = ${ $.index }:visible</link>
+                    </imports>
+                </settings>
+            </filterSelect>
+        </filters>
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete selected items?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="careers/index/massDelete" />
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+            <action name="edit">
+                <settings>
+                    <callback>
+                        <target>editSelected</target>
+                        <provider>
+                            encomage_careers_listing.encomage_careers_listing.encomage_careers_listing_columns_editor
+                        </provider>
+                    </callback>
+                    <url path="careers/category/edit" />
+                    <type>edit</type>
+                    <label translate="true">Edit</label>
+                </settings>
+            </action>
+            <action name="status_enabled">
+                <settings>
+                    <url path="careers/index/statusEnabled" />
+                    <type>status_enabled</type>
+                    <label translate="true">Status Enable</label>
+                </settings>
+            </action>
+            <action name="status_disabled">
+                <settings>
+                    <url path="careers/index/statusDisabled" />
+                    <type>status_disabled</type>
+                    <label translate="true">Status Disable</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging" />
+    </listingToolbar>
+    <columns name="encomage_careers_categories_listing_columns" class="Magento\Ui\Component\Listing\Columns">
+        <settings>
+            <editorConfig>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="careers/category/inlineEdit" />
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+                <param xsi:type="array" name="anySimpleType">
+                    <item name="string" xsi:type="string">html</item>
+                </param>
+                <param name="indexField" xsi:type="string">id</param>
+                <param name="enabled" xsi:type="boolean">true</param>
+                <param name="selectProvider" xsi:type="string">encomage_careers_categories_listing.encomage_careers_categories_listing.encomage_careers_categories_listing_columns.ids</param>
+            </editorConfig>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">encomage_careers_categories_listing.encomage_careers_categories_listing.encomage_careers_categories_listing_columns_editor</item>
+                    <item name="target" xsi:type="string">startEdit</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                        <item name="1" xsi:type="boolean">true</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <column name="sort_order">
+            <settings>
+                <filter>textRange</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                        <rule name="validate-xml-identifier" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Sort Order</label>
+            </settings>
+        </column>
+        <column name="status" class="Encomage\Careers\Ui\Component\Listing\Column\Statuses">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" translate="true" xsi:type="string">Enabled</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Encomage\Careers\Ui\Component\Listing\Column\Category\RowActions">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

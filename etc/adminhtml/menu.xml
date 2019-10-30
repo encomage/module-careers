@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Encomage_Careers::careers" parent="Encomage_Core::menu" title="Careers" module="Encomage_Careers" sortOrder="50"
+             resource="Encomage_Careers::careers"/>
+        <add id="Encomage_Careers::careers_list" title="Vacancies" module="Encomage_Careers" sortOrder="10"
+             resource="Encomage_Careers::careers_list" parent="Encomage_Careers::careers" action="careers"/>
+        <add id="Encomage_Careers::careers_categories" title="Categories" module="Encomage_Careers" sortOrder="20"
+             resource="Encomage_Careers::careers_categories" parent="Encomage_Careers::careers" action="careers/category"/>
+        <add id="Encomage_Careers::careers_settings" title="Configuration" module="Encomage_Careers" sortOrder="30"
+             resource="Encomage_Careers::careers_settings" parent="Encomage_Careers::careers"
+             action="adminhtml/system_config/edit/section/careers_settings"/>
+    </menu>
+</config>

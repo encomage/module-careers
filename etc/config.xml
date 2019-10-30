@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <careers_settings>
+            <frontend>
+                <is_enabled>1</is_enabled>
+                <front_name>careers</front_name>
+                <menu_link_title>Careers</menu_link_title>
+            <text_empty_vacancy_page>No Vacancy</text_empty_vacancy_page>
+                <title_vacancy_page>Our Vacancy</title_vacancy_page>
+            </frontend>
+            <sharing_add_to_any>
+                <code><![CDATA[<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->]]></code>
+            </sharing_add_to_any>
+            <email_settings>
+                <recipient_name>Website Admin</recipient_name>
+                <recipient_email>exemple@mail.com</recipient_email>
+                <email_template>careers_settings_email_settings_email_template</email_template>
+                <max_size>5242880</max_size>
+                <allowed_extensions>pdf,pdf,csv,bmp,txt,doc,docx,xls,xlsx,rtf,ppt,ppt</allowed_extensions>
+            </email_settings>
+        </careers_settings>
+    </default>
+</config>

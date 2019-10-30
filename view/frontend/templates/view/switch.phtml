@@ -1,0 +1,35 @@
+<?php /** @var \Encomage\Careers\Block\Careers\View\SwitchItem $block */
+
+$previousItem = $block->getPreviousItem();
+$nextItem = $block->getNextItem();
+$frontendUrl = $block->getCareersListingUrl();
+?>
+<div class="bottom-container">
+    <h2><?= /* @escapeNotVerified */ __('Not the right job?'); ?></h2>
+    <div class="previous">
+        <?php if ($previousItem): ?>
+            <a href="<?= $block->escapeUrl($previousItem->getViewUrl()) ?>"><span><?= $previousItem->getTitle(); ?></span>
+                <p><?= $previousItem->getContent(); ?></p>
+            </a>
+        <?php endif; ?>
+    </div>
+    <div class="next">
+        <?php if ($nextItem): ?>
+            <a href="<?= $block->escapeUrl($nextItem->getViewUrl()) ?>"><span><?= $nextItem->getTitle(); ?></span>
+                <p><?= $nextItem->getContent(); ?></p>
+            </a>
+        <?php endif; ?>
+    </div>
+    <div class="next-prev-block">
+        <?php if ($previousItem): ?>
+            <a class="previous-arrow" href="<?= $block->escapeUrl($previousItem->getViewUrl()) ?>"><span><?= /* @escapeNotVerified */__('Previous'); ?></span></a>
+        <?php endif; ?>
+
+        <?php if ($nextItem): ?>
+            <a class="next-arrow" href="<?= $block->escapeUrl($nextItem->getViewUrl()) ?>"><span><?= /* @escapeNotVerified */__('Next'); ?></span></a>
+        <?php endif; ?>
+    </div>
+    <div class="actions-primary">
+        <a class="primary action" href="<?= $block->escapeUrl($frontendUrl) ?>"><span><?= /* @escapeNotVerified */ __('Back to listings'); ?></span></a>
+    </div>
+</div>

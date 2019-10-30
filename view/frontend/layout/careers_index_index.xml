@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="div.sidebar.additional" remove="true" />
+        <referenceContainer name="content">
+            <container name="careers.container" label="Careers" htmlTag="div"
+                       htmlClass="careers-container">
+                <block class="Encomage\Careers\Block\Careers\CareersList\CmsBlock" name="careers.list.cms.block" />
+                <block class="Encomage\Careers\Block\Careers\CareersList\Categories" name="careers.list.categories"
+                       template="Encomage_Careers::list.phtml">
+                    <block class="Encomage\Careers\Block\Careers\CareersList\Items"
+                           name="careers.list.categories.items" />
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

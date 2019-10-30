@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="div.sidebar.additional" remove="true" />
+        <referenceContainer name="content">
+            <container name="careers.item.view.container" label="Vacancy" htmlTag="div"
+                       htmlClass="careers-view-container">
+                <block class="Encomage\Careers\Block\Careers\View\Content" name="careers.item.view.content"
+                       template="Encomage_Careers::view/content.phtml">
+                    <block class="Encomage\Careers\Block\Careers\View\Form" name="careers.item.view.form"
+                           template="Encomage_Careers::view/form.phtml"/>
+                </block>
+                <block class="Encomage\Careers\Block\Careers\View\SwitchItem" name="careers.item.view.switch.item"
+                       template="Encomage_Careers::view/switch.phtml">
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

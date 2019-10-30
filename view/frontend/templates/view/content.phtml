@@ -1,0 +1,13 @@
+<?php /** @var $block \Encomage\Careers\Block\Careers\View\Content */
+
+/** @var \Encomage\Careers\Model\Careers $item */
+$item = $block->getItem();
+?>
+<div>
+    <p><?= $block->escapeHtml($block->getTitle()); ?></p>
+    <p><?= $block->getContent(); ?></p>
+</div>
+<div>
+    <?= $block->getShareToAnyCodeHtml(); ?>
+</div>
+<?= $block->getChildHtml('careers.item.view.form'); ?>

@@ -1,0 +1,77 @@
+<?php /** @var $block \Encomage\Careers\Block\Careers\View\Form */ ?>
+<div>
+    <form class="form contact"
+          id="apply-form"
+          method="post"
+          data-mage-init='{"careers":<?= $block->getJsConfig()?>}'
+          action="<?= $block->escapeUrl($block->getSubmitUrl()); ?>"
+          enctype="multipart/form-data"
+          data-hasrequired="<?= /* @escapeNotVerified */ __('* Required Fields'); ?>">
+        <fieldset class="fieldset">
+            <legend class="legend"><span><?= /* @escapeNotVerified */ __('Apply for a job');?></span></legend>
+            <div class="field name required">
+                <label class="label" for="name"><span><?= /* @escapeNotVerified */ __('Name');?></span></label>
+                <div class="control">
+                    <input id="name"
+                           name="name"
+                           type="text"
+                           title="<?= /* @escapeNotVerified */ __('Name');?>"
+                           class="input-text"
+                           data-validate="{'required-entry':true}"/>
+                </div>
+            </div>
+            <div class="field user_email required">
+                <label class="label" for="user_email"><span><?= /* @escapeNotVerified */ __('Email');?></span></label>
+                <div class="control">
+                    <input id="user_email"
+                           name="user_email"
+                           type="email"
+                           title="<?= /* @escapeNotVerified */ __('Email');?>"
+                           class="input-text"
+                           data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field file-upload resume required">
+                <div id="attachFileUpload"></div>
+                <button class="attach" type="button"><?= /* @escapeNotVerified */ __('Attach Resume/CV '); ?>
+                    <span class="required">*</span></button>
+                <div class="control">
+                    <input id="resume"
+                           name="resume"
+                           type="file"
+                           class="input-text required-file js-resume"/>
+                    <div class="file-name"></div>
+                    <span hidden><?php echo /* @escapeNotVerified */ __('Maximum document size %1 %2', $block->getMaxSizeInMb(), 'Mb');?></span>
+                </div>
+            </div>
+            <div class="field telephone">
+                <label class="label" for="telephone"><span><?= /* @escapeNotVerified */ __('Phone Number');?></span></label>
+                <div class="control">
+                    <input id="telephone"
+                           name="telephone"
+                           type="text" title="<?= /* @escapeNotVerified */ __('Phone Number');?>"
+                           class="input-text"/>
+                </div>
+            </div>
+            <div class="field message">
+                <label class="label" for="message"><span><?= /* @escapeNotVerified */ __('What’s on your mind?');?></span></label>
+                <div class="control">
+                    <textarea
+                            name="message"
+                            id="message"
+                            title="<?= /* @escapeNotVerified */  __('What’s on your mind?');?>"
+                            class="input-text"
+                            cols="5"
+                            rows="3"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit primary js-send-button">
+                    <span><?= /* @escapeNotVerified */__('Submit'); ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
